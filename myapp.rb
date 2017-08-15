@@ -14,8 +14,14 @@ get '/another' do
   "somethign really funny and interesting"
 end
 
-get '/cat' do
-  "<div>
-  <img src = 'http://bit.ly/1eze8aE' style = 'border: medium dashed red;'>
-  </div>"
+get '/random_cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get '/named_cat' do
+  p params
+  @name = params[:name]
+  @age = params[:age]
+  erb(:index)
 end
